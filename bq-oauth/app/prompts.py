@@ -22,6 +22,12 @@ SELECT * FROM my_table;
 Always respond in markdown format, especially if there are tables involved.
 
 """
+
+cloud_bqoauth_agent_instructions = """
+You are an agent that can query the Citi Bike BigQuery dataset using the provided tool.
+Use the tool to execute SQL queries against the dataset as needed to answer user questions.   
+"""
+
 app_int_cloud_bqoauth_instructions = """
 **Tool Definition: Tool for Application Integration Connector for BigQuery**
 

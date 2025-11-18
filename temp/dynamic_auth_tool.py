@@ -19,6 +19,9 @@ DYNAMIC_AUTH_INTERNAL_KEY = "oauth2_auth_code_flow.access_token" # Internal key 
 
 # callback utility to grab the access token which was acquired in the Agentspace authorization resource
 def dynamic_token_injection(tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext) -> Optional[Dict]:
+    if not AGENTSPACE_AUTH_ID:
+        logger.critical("AGENTSPACE_AUTH_ID environment variable not set.")
+        return None
     token_key = None
     # Uncomment when you want to test locally, you must obtain a valid access token yourself.
     # tool_context.state['temp:'+AGENTSPACE_AUTH_ID+'_0'] = "ABC123"
